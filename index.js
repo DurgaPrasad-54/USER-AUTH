@@ -20,7 +20,7 @@ app.post('/register', async (req, res) => {
             }
 
             if (result.length > 0) {
-                return res.status(409).send({ message: 'User already exists' });
+                return res.status(409).send({ message: 'User already exists. Please login' });
             }
 
             const hash = await bcrypt.hash(password, 10);
@@ -81,3 +81,4 @@ app.get('/dashbord', verify, (req, res) => {
 app.listen(8000, () => {
     console.log('Server is running on port 8000');
 });
+
